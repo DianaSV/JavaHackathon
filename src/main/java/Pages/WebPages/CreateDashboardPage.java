@@ -14,62 +14,47 @@ public class CreateDashboardPage {
     @FindBy(css = "div:nth-child(2) > textarea")
     private static WebElement description;
 
-    @FindBy(css = "div:nth-child(4) > div.css-zer0lh > div:nth-child(1) > div:nth-child(2) > div > label:nth-child(4)")
+    @FindBy(xpath = "//label[text()='Bars']")
     private static WebElement barsStyle;
 
-    @FindBy(css = "div:nth-child(4) > div.css-zer0lh > div:nth-child(3) > div:nth-child(2) > div > label > div.css-fvkifa-input-wrapper > div > input")
-    private static WebElement lineWidthTextBox;
-
-    @FindBy(css = " div.css-zer0lh > div:nth-child(1) > div:nth-child(2) > div > div > div > div > input")
+    @FindBy(xpath = "//*[@class='css-zer0lh']//*[@placeholder='Choose']")
     private static WebElement unitPicker;
 
-    @FindBy(css = "body > div:nth-child(13) > div > div > div > ul")
-    private static WebElement unitUl;
-
-    @FindBy(xpath = "//*[@class='rc-cascader-menu']//*[10]")
+    @FindBy(xpath = "//*[@class='rc-cascader-menu']//*[@title='Date & time']")
     private static WebElement dateAndTimePicker;
 
-    @FindBy(xpath = "/html/body/div[4]/div/div/div/ul[2]//*[@title='Datetime ISO']")
+    @FindBy(xpath = "//*[@class='rc-cascader-menu']//*[@title='Datetime ISO']")
     private static WebElement dateTimeISO;
 
-    @FindBy(xpath = "//*[@id=\"reactRoot\"]/div/main/div[3]/div[2]/div[1]/div[6]/button/div")
-    private static WebElement applyButton;
+    @FindBy(xpath = "//button[contains(@title,'back to dashboard')]")
+    private static WebElement applybtn;
 
 
-    // Getters
-    public WebElement getTitle() {
+
+    public  WebElement getTitle(){
         return title;
     }
 
-    public WebElement getUnitUl() {
-        return unitUl;
-    }
-
-    public WebElement getDescription() {
+    public  WebElement getDescription(){
         return description;
     }
 
-    public WebElement getBarsStyle() {
+    public  WebElement getBarsStyle(){
         return barsStyle;
     }
 
-    public WebElement getLineWidthTextBox() {
-        return lineWidthTextBox;
-    }
-
-    public WebElement getUnitPicker() {
+    public  WebElement getUnitPicker(){
         return unitPicker;
     }
 
-    public WebElement getDateAndTimePicker() {
+    public  WebElement getDateAndTimePicker(){
         return dateAndTimePicker;
     }
 
-    public WebElement getDateTimeISO() {
+    public  WebElement getDateTimeISO(){
         return dateTimeISO;
     }
-
-    public WebElement getApplyButton() {
-        return applyButton;
+    public  WebElement getApplyBtn(){
+        return applybtn;
     }
 }

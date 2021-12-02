@@ -14,22 +14,22 @@ public class ServerAdminUsersPage {
     @FindBy(css = "table > tbody > tr")
     private static List<WebElement> usersList;
 
-    @FindBy(css = "div.page-action-bar > a > span")
+    @FindBy(css = "a[href='admin/users/create']")
     private static WebElement newUserBtn;
 
-    @FindBy(css = "div:nth-child(1) > div:nth-child(2) > div > div > input")
+    @FindBy(css = "input[name='name']")
     private static WebElement nameTxt;
 
-    @FindBy(css = "div:nth-child(2) > div:nth-child(2) > div > div > input")
+    @FindBy(css = "input[name='email']")
     private static WebElement emailTxt;
 
-    @FindBy(css = "div:nth-child(3) > div:nth-child(2) > div > div > input")
+    @FindBy(css = "input[name='login']")
     private static WebElement usernameTxt;
 
-    @FindBy(css = "div:nth-child(4) > div:nth-child(2) > div > div > input")
+    @FindBy(css = "input[name='password']")
     private static WebElement passwordTxt;
 
-    @FindBy(css = "form > button")
+    @FindBy(css = "button[type='submit']")
     private static WebElement createUserBtn;
 
     @FindBy(css = "div.css-17jy1b > button > div > svg")

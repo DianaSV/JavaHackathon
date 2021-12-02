@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
  */
 public class SearchDashboardPage {
 
-    @FindBy(css = "div.css-1schass > input")
+    @FindBy(css = "input.css-p5nstf")
     private static WebElement searchInput;
 
     @FindBy(css = "div.css-3tu9gd > div:nth-child(1)")

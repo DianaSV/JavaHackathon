@@ -13,10 +13,10 @@ public class PanelsPage {
     @FindBy(css = "div > h2")
     private static List<WebElement> allPanelsTitleList;
 
-    @FindBy(css = "li:nth-child(8) > a > span.dropdown-item-text")
+    @FindBy(css = "span[aria-label='Panel header item Remove']")
     private static WebElement removePanelOption;
 
-    @FindBy(css = "div:nth-child(2) > button > span")
+    @FindBy(css = "button[aria-label='Confirm Modal Danger Button']")
     private static WebElement acceptRemoveAlert;
 
     // Getters

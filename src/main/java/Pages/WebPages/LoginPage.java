@@ -8,13 +8,13 @@ import org.openqa.selenium.support.FindBy;
  * @project QA-AutomationDemonstration
  */
 public class LoginPage {
-    @FindBy(css = "div:nth-child(1) > div:nth-child(2) > div > div > input")
+    @FindBy(css = "input[name='user']")
     private static WebElement usernameInput;
 
-    @FindBy(css = "#current-password")
+    @FindBy(css = "input[name='password']")
     private static WebElement passwordInput;
 
-    @FindBy(css = "form > button")
+    @FindBy(css = "button[aria-label='Login button']")
     private static WebElement loginButton;
 
     // Getters

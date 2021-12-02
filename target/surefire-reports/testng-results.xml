@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Desktop Suite" duration-ms="72580" started-at="2021-12-01T21:06:58 IST" finished-at="2021-12-01T21:08:11 IST">
+  <suite name="Desktop Suite" duration-ms="31066" started-at="2021-12-02T09:49:10 IST" finished-at="2021-12-02T09:49:42 IST">
     <groups>
     </groups>
-    <test name="Appium Test" duration-ms="72580" started-at="2021-12-01T21:06:58 IST" finished-at="2021-12-01T21:08:11 IST">
+    <test name="Appium Test" duration-ms="31066" started-at="2021-12-02T09:49:10 IST" finished-at="2021-12-02T09:49:42 IST">
       <class name="MortgageTests">
-        <test-method status="PASS" signature="startSession(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:MortgageTests@4564e94b]" name="startSession" is-config="true" duration-ms="54979" started-at="2021-12-01T21:06:58 IST" finished-at="2021-12-01T21:07:53 IST">
+        <test-method status="PASS" signature="startSession(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:MortgageTests@4248ed58]" name="startSession" is-config="true" duration-ms="13043" started-at="2021-12-02T09:49:10 IST" finished-at="2021-12-02T09:49:24 IST">
           <params>
             <param index="0">
               <value>
@@ -68,15 +68,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startSession -->
-        <test-method status="PASS" signature="Test01_calculateUsingDataFromDB()[pri:0, instance:MortgageTests@4564e94b]" name="Test01_calculateUsingDataFromDB" duration-ms="14890" started-at="2021-12-01T21:07:53 IST" description="Calculate using data from DB and verify input is above zero" finished-at="2021-12-01T21:08:08 IST">
+        <test-method status="PASS" signature="Test01_calculateUsingDataFromDB()[pri:0, instance:MortgageTests@4248ed58]" name="Test01_calculateUsingDataFromDB" duration-ms="15450" started-at="2021-12-02T09:49:24 IST" description="Calculate using data from DB and verify input is above zero" finished-at="2021-12-02T09:49:39 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test01_calculateUsingDataFromDB -->
-        <test-method status="PASS" signature="test02_verifySaved()[pri:0, instance:MortgageTests@4564e94b]" name="test02_verifySaved" duration-ms="2417" started-at="2021-12-01T21:08:08 IST" description="Verify last one added was saved" finished-at="2021-12-01T21:08:11 IST">
+        <test-method status="PASS" signature="test02_verifySaved()[pri:0, instance:MortgageTests@4248ed58]" name="test02_verifySaved" duration-ms="2306" started-at="2021-12-02T09:49:39 IST" description="Verify last one added was saved" finished-at="2021-12-02T09:49:41 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test02_verifySaved -->
-        <test-method status="PASS" signature="endSession()[pri:0, instance:MortgageTests@4564e94b]" name="endSession" is-config="true" duration-ms="6" started-at="2021-12-01T21:08:11 IST" finished-at="2021-12-01T21:08:11 IST">
+        <test-method status="PASS" signature="endSession()[pri:0, instance:MortgageTests@4248ed58]" name="endSession" is-config="true" duration-ms="5" started-at="2021-12-02T09:49:42 IST" finished-at="2021-12-02T09:49:42 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endSession -->

@@ -107,7 +107,7 @@ public class GrafanaWorkFlows extends CommonOps {
         UIActions.scrollToElement(createDashboardPage.getDateAndTimePicker());
         UIActions.clickElement(createDashboardPage.getDateAndTimePicker());
         UIActions.clickElement(createDashboardPage.getDateTimeISO());
-        UIActions.clickElement(createDashboardPage.getApplyButton());
+        UIActions.clickElement(createDashboardPage.getApplyBtn());
     }
 
     // Helper function.
