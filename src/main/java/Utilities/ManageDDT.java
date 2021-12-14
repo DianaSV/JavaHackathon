@@ -20,7 +20,7 @@ public class ManageDDT extends CommonOps {
 
     @DataProvider(name = "NewUsers")
     public static Object[][] getDataObject(){
-        newUsersFilePath = ".\\Files\\NewUsers.csv";
+        newUsersFilePath = "./Files/NewUsers.csv";
         return getDataFromCSV(Variables.newUsersFilePath);
     }
 

@@ -22,9 +22,9 @@ public class GrafanaWorkFlows extends CommonOps {
     @Step("Login to grafana dashboard.")
     public static void loginToGrafana() {
         // Set userName, userPassword and Header.
-        expectedGrafanaHeader = "Welcome to Grafana";
-        userName = "admin";
-        userPassword = "12345";
+        expectedGrafanaHeader   = getData("ExpectedGrafanaHeader");
+        userName                = getData("LoginUsername");
+        userPassword            = getData("LoginPassword");
         UIActions.sendKeysToElement(loginPage.getUsernameInput(), userName);
         UIActions.sendKeysToElement(loginPage.getPasswordInput(), userPassword);
         UIActions.clickElement(loginPage.getLoginButton());
@@ -33,9 +33,9 @@ public class GrafanaWorkFlows extends CommonOps {
     @Step("Validate grafana logo exists")
     public static boolean isGrafanaLogoExists() {
         // Set image repository path
-        imageRepoPath = "C:\\Automation\\QA-AutomationDemonstration\\Files\\";
+        imageRepoPath = getData("ImageRepoPath");
         Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
-        return screen.exists(imageRepoPath + "Grafana.png") != null;
+        return screen.exists(imageRepoPath + getData("ImageFileName")) != null;
     }
 
     @Step("Resize Dashboard.")
@@ -73,10 +73,10 @@ public class GrafanaWorkFlows extends CommonOps {
 
     public static void deletePanel() {
         // Set panel name to be deleted.
-        panelNameToDelete = "New Panel";
+        panelNameToDelete = getData("PanelNameToDelete");
 
         // Set dashboard to delete from
-        dashBoardToDelete = "New dashboard1";
+        dashBoardToDelete = getData("DashBoardToDelete");
 
         UIActions.hoverOverElement(grafanaMenuPage.getSearchDashboards());
         UIActions.clickElement(grafanaMenuPage.getSearchDashboardsLabel());
@@ -95,7 +95,7 @@ public class GrafanaWorkFlows extends CommonOps {
 
     @Step
     public static void createDashboard() {
-        lastPanelAddedTitle = "Test Panel";
+        lastPanelAddedTitle = getData("LastPanelAddedTitle");
 
         UIActions.clickElement(grafanaMenuPage.getPlusElement());
         UIActions.clickElement(grafanaMenuPage.getAddDashboardElement());

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Environment>
+    <LoginUsername>admin</LoginUsername>
+    <LoginPassword>12345</LoginPassword>
+    <PanelNameToDelete>New Panel</PanelNameToDelete>
+    <DashBoardToDelete>New dashboard</DashBoardToDelete>
+    <LastPanelAddedTitle>Test Panel</LastPanelAddedTitle>
+    <ImageRepoPath>./Files/</ImageRepoPath>
+    <ImageFileName>Grafana.png</ImageFileName>
+    <ExpectedGrafanaHeader>Welcome to Grafana</ExpectedGrafanaHeader>
+</Environment>

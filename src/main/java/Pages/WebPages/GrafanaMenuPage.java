@@ -11,7 +11,7 @@ public class GrafanaMenuPage {
     @FindBy(css = "a[aria-label='Create'] svg")
     private static WebElement plusElement;
 
-    @FindBy(css = "ul a.css-1j1rze6[href='/dashboard/new']")
+    @FindBy(xpath = "//*[@aria-label='Add new panel']")
     private static WebElement addDashboardElement;
 
     @FindBy(css = "a[aria-label='Server Admin']")

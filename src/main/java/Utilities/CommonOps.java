@@ -1,11 +1,13 @@
 package Utilities;
 
 
+import WorkFlows.DesktopWorkFlows;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.windows.WindowsDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import org.openqa.selenium.WebDriver;
@@ -17,12 +19,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.Screen;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Connection;
@@ -87,21 +91,21 @@ public class CommonOps extends Variables {
         }
     }
 
-//    @BeforeMethod
-//    public void beforeMethod(Method method) {
-//        if (!platform.equalsIgnoreCase("api")) {
-//            try {
-//                MonteScreenRecorder.startRecord(method.getName());
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        if (platform.equalsIgnoreCase("desktop")) {
-//            DesktopWorkFlows.cleanCalc();
-//        }
-//    }
+    @BeforeMethod
+    public void beforeMethod(Method method) {
+        if (!platform.equalsIgnoreCase("api")) {
+            try {
+                MonteScreenRecorder.startRecord(method.getName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (platform.equalsIgnoreCase("desktop")) {
+            DesktopWorkFlows.cleanCalc();
+        }
+    }
 
-
+    @Step
     public static void initWeb() {
         switch (browserName) {
             case "chrome":
@@ -125,13 +129,14 @@ public class CommonOps extends Variables {
         ManagePages.initializeWebPages();
     }
 
+    @Step
     public static void initElectron() {
-        electronAppPath = "C:/Users/thero/AppData/Local/Programs/todolist/Todolist.exe";
+        electronAppPath = getData("appPath");
 
         dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         now = LocalDateTime.now();
 
-        System.setProperty("webdriver.chrome.driver", "./Drivers/electrondriver.exe");
+        System.setProperty(getData("SetPropertyKey"), getData("SetElectronDriverPath"));
         chromeOptions = new ChromeOptions();
         chromeOptions.setBinary(electronAppPath);
         dc = new DesiredCapabilities();
@@ -145,10 +150,10 @@ public class CommonOps extends Variables {
 
     @Step("Initialize api http request")
     public static void initAPI() {
-        usersApiUrl = "http://localhost:3000/api/users/";
-        adminApiURL = "http://localhost:3000/api/admin/users";
+        usersApiUrl = getData("UsersApiUrl");
+        adminApiURL = getData("AdminApiURL");
 
-        RestAssured.baseURI = "http://localhost:3000/api/org";
+        RestAssured.baseURI = getData("BaseURI");
         httpRequest = RestAssured.given().auth().preemptive().basic(apiUserName, apiPassword);
         httpRequest.header("Content-Type", "application/json");
 
@@ -156,24 +161,24 @@ public class CommonOps extends Variables {
 
     @Step("Initialize Desktop")
     public static void initDesktop() throws IOException {
-        dc.setCapability("app", "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"); // TODO From external file.
-        driver = new WindowsDriver(new URL("http://127.0.0.1:4723"), dc);
+        dc.setCapability("app", getData("AppPath"));
+        driver = new WindowsDriver(new URL(getData("IPPort")), dc);
         setDriverTimeoutAndWait();
     }
 
     @Step("Initialize Appium")
     public static void initAppium() throws MalformedURLException, SQLException, ClassNotFoundException {
-        reportDirectory = "reports";
-        reportFormat = "xml";
-        testName = "Untitled";
+        reportDirectory = getData("ReportDirectory");
+        reportFormat = getData("ReportFormat");
+        testName = getData("TestName");
 
         dc.setCapability("reportDirectory", reportDirectory);
         dc.setCapability("reportFormat", reportFormat);
         dc.setCapability("testName", testName);
-        dc.setCapability(MobileCapabilityType.UDID, "ac58c4ec");
-        dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.shivgadhia.android.ukMortgageCalc");
-        dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".MainActivity");
-        appiumDriver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), dc);
+        dc.setCapability(MobileCapabilityType.UDID,                 getData("UDID"));
+        dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,   getData("AppPackage"));
+        dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,  getData("AppActivity"));
+        appiumDriver = new AndroidDriver(new URL(                   getData("driverURL")), dc);
         appiumDriver.setLogLevel(Level.INFO);
         ManageDB.initSQLConnection();
         ManagePages.initializeAppiumPages();
@@ -202,6 +207,12 @@ public class CommonOps extends Variables {
                 break;
             case "mobile":
                 fXmlFile = new File("./Files/Mortgage.xml");
+                break;
+            case "electron":
+                fXmlFile = new File("./Files/ToDoList.xml");
+                break;
+            case "web":
+                fXmlFile = new File("./Files/Grafana.xml");
                 break;
         }
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

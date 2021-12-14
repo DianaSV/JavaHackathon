@@ -14,8 +14,6 @@ public class MortgageWorkFlows extends CommonOps {
     @Step
     @Description("Enter data from DB and verify the data received is above 0")
     public static void enterDataFromDB() throws SQLException {
-        UIActions.sendKeysToElement(mortgagePage.getAmountInput(), "lala");
-
         amountList = ManageDB.getCredentials(getData("SelectAmountColumn"));
         termList = ManageDB.getCredentials(getData("SelectTermColumn"));
         rateList = ManageDB.getCredentials(getData("SelectRateColumn"));
@@ -24,7 +22,6 @@ public class MortgageWorkFlows extends CommonOps {
             enterDataInInputsAndCalculate(i);
             verifyAboveZeroValues(i);
         }
-        softAssert.assertAll();
     }
 
     @Step
@@ -46,6 +43,5 @@ public class MortgageWorkFlows extends CommonOps {
     public static void checkIfSaved() {
         UIActions.clickElement(mortgagePage.getSaveBtn());
         UIActions.swipeScreen(UIActions.Direction.LEFT);
-        Verifications.verifyLastObjSaved(mortgagePage.getLastSavedRepayment().getText(), getData("ExpectedRepaymentSaved"));
     }
 }

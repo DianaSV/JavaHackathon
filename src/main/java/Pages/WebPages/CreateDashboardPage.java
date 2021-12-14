@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
  * @project QA-AutomationDemonstration
  */
 public class CreateDashboardPage {
-    @FindBy(css = "#PanelFrameTitle")
+    @FindBy(xpath = "//*[@id='PanelFrameTitle']")
     private static WebElement title;
 
     @FindBy(css = "div:nth-child(2) > textarea")

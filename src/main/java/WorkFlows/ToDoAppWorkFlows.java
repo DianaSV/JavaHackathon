@@ -12,14 +12,14 @@ public class ToDoAppWorkFlows extends CommonOps {
 
     @Step
     public static void addNewTask() {
-        expectedTaskTest = "Test";
+        expectedTaskTest = getData("ExpectedTaskTest");
         UIActions.sendKeysToElement(toDoHomePage.getTaskInput(), expectedTaskTest);
         UIActions.sendReturnKey(toDoHomePage.getTaskInput());
     }
 
     @Step
     public static void deleteTask() {
-        expectedTextAfterDelete = "There's no task";
+        expectedTextAfterDelete = getData("ExpectedTextAfterDelete");
         UIActions.clickElement(toDoHomePage.getDeleteIcon());
     }
 

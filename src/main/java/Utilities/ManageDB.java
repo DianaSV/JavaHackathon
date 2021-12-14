@@ -15,7 +15,6 @@ public class ManageDB extends CommonOps {
 
     // Make connection
     public static void initSQLConnection() throws ClassNotFoundException, SQLException {
-        //Class.forName("com.mysql.jdbc.Driver");
         Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection(dbURL, dbUserName, dbPassword);
         statement = connection.createStatement();

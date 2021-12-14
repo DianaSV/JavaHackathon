@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Environment>
+    <appPath>C:/Users/thero/AppData/Local/Programs/todolist/Todolist.exe</appPath>
+    <ExpectedTaskTest>Test</ExpectedTaskTest>
+    <ExpectedTextAfterDelete>There's no task</ExpectedTextAfterDelete>
+    <SetPropertyKey>webdriver.chrome.driver</SetPropertyKey>
+    <SetElectronDriverPath>./Drivers/electrondriver.exe</SetElectronDriverPath>
+</Environment>
